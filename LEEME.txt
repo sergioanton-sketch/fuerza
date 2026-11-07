@@ -1,14 +1,22 @@
-FUERZA 20 — Aplicación web progresiva para iPhone
+FUERZA 20 – versión actualizada
 
-Archivos: index.html, manifest.webmanifest, sw.js e iconos PNG.
+Contenido:
+- Planificación diaria completa para semanas de 3 y 5 días.
+- Selección de fecha y cambio manual de sesión para recuperar entrenamientos.
+- Cargas programadas de press banca y banca pausada según las 20 semanas.
+- Progresión de dominadas según la semana y el turno.
+- Para ejercicios auxiliares, propone la última carga registrada y orienta el siguiente incremento si el último registro fue fácil (3+ RIR). En la primera sesión se debe calibrar una carga que permita 2 RIR; no se inventan pesos sin conocer la fuerza individual.
+- Registro de peso, series, repeticiones, RIR, sensaciones y observaciones.
+- Historial, CSV, copia/restauración JSON, temporizador y fotos locales.
 
-INSTALACIÓN:
-1. Publica el contenido de esta carpeta en un alojamiento HTTPS.
-2. Abre la URL en Safari en el iPhone.
-3. Compartir > Añadir a pantalla de inicio > Añadir.
+Instalación/publicación:
+1. Descomprime el ZIP.
+2. En GitHub, abre el repositorio sergioanton-sketch/gimnasio.
+3. Add file > Upload files; sube y reemplaza los archivos de esta carpeta en la raíz.
+4. Commit changes.
+5. En Settings > Pages comprueba Deploy from a branch, main y /(root).
+6. Espera a que Actions termine correctamente y abre https://sergioanton-sketch.github.io/gimnasio/
 
-ALMACENAMIENTO:
-Los registros y fotos se guardan en localStorage del navegador/dispositivo. No se envían a servidores. Exporta JSON periódicamente. Limpiar datos de Safari o borrar datos del sitio puede eliminar la información local.
-
-LIMITACIONES:
-La sincronización Suunto no está conectada. Requiere un mecanismo/API oficial compatible y autorización. El paquete no está alojado públicamente; necesita HTTPS para instalarse como PWA.
+La aplicación no se publica automáticamente desde este ZIP. Requiere subir los archivos a GitHub Pages y disponer de HTTPS.
+Los datos se almacenan localmente en el navegador. Exporta copias JSON regularmente.
+Suunto no está conectado; la introducción de datos sigue siendo manual.

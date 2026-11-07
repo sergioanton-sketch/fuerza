@@ -2,7 +2,9 @@
 :root{color-scheme:dark;--bg:#0c100f;--p:#151c19;--p2:#1b2520;--line:#2a3931;--muted:#9aa9a0;--text:#f2f6f3;--g:#a6f36a}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,sans-serif;padding-bottom:90px}header{padding:calc(16px + env(safe-area-inset-top)) 18px 14px;background:#101613;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.brand{display:flex;justify-content:space-between;align-items:center}.logo{font-size:21px;font-weight:900;letter-spacing:1.5px}.logo span{color:var(--g)}.tag,.muted,.tiny{color:var(--muted)}.tag{font-size:11px}main{max-width:760px;margin:auto;padding:16px}.screen{display:none}.screen.active{display:block}h1{font-size:24px;margin:8px 0}h2{font-size:18px;margin:0 0 12px}.muted{font-size:13px}.tiny{font-size:11px}.grid,.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{background:var(--p);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}.metric{font-size:27px;font-weight:800;margin:5px 0}.metric small{font-size:13px;color:var(--muted)}.green{color:var(--g)}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.pill{border:1px solid var(--line);border-radius:99px;padding:6px 10px;color:var(--g);font-size:11px;font-weight:700}button,input,select,textarea{font:inherit}button{border:0;border-radius:12px;padding:12px 14px;background:var(--g);color:#14200f;font-weight:800}button.secondary{background:var(--p2);color:var(--text);border:1px solid var(--line)}button.danger{background:#492323;color:#ffdede}.full{width:100%}label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}input,select,textarea{width:100%;background:#0e1411;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px}textarea{min-height:70px}.tabs{position:fixed;bottom:0;left:0;right:0;background:#101613;border-top:1px solid var(--line);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:10}.tabs button{background:transparent;color:var(--muted);padding:8px 3px;font-size:11px;flex:1}.tabs button.active{color:var(--g)}.tabs b{display:block;font-size:19px}.bar{height:8px;background:#29342e;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g)}.exercise,.listitem{padding:11px 0;border-top:1px solid var(--line)}.exercise small{display:block;color:var(--muted)}.timer{font-size:48px;font-weight:900;text-align:center;color:var(--g);margin:15px}.notice{background:#252b1e;border:1px solid #465536;padding:12px;border-radius:12px;font-size:12px;color:#d9edc8}.photo{width:100%;border-radius:12px;margin-top:8px}
 </style></head><body><header><div class="brand"><div><div class="logo">FUERZA <span>20</span></div><div class="tag">TU PROGRESO. TU FUERZA.</div></div><div class="pill" id="phasePill">SEMANA 1 / 20</div></div></header><main>
 <section id="home" class="screen active"><h1>Panel de rendimiento</h1><p class="muted">Preparación personal de fuerza.</p><div class="grid"><div class="card"><div class="muted">Press banca</div><div class="metric">70 <small>kg × 8</small></div><div class="tiny">Meta: 100 kg</div></div><div class="card"><div class="muted">Dominadas</div><div class="metric">5 <small>estrictas</small></div><div class="tiny">Meta: 10</div></div></div><div class="card"><div class="row"><h2>Programa</h2><span class="pill" id="weekType">5 DÍAS</span></div><label>Semana</label><select id="weekSelect"></select><label>Turno</label><select id="shiftSelect"><option value="A">Trabajo de tarde · 5 días</option><option value="B">Trabajo de mañana · 3 días</option></select><div class="row" style="margin:12px 0"><div><div class="muted">Banca principal</div><div class="metric green" id="benchPlan">62,5 kg</div></div><div><div class="muted">Dominadas</div><div class="metric" id="pullPlan">5×3</div></div></div><div class="bar"><i id="weekBar"></i></div><p class="tiny" id="phaseText"></p><button class="full" onclick="go('workout')">Comenzar / registrar sesión</button></div><div class="card"><h2>Objetivos</h2><div class="row"><span>Press banca</span><b>100 kg</b></div><div class="bar"><i style="width:87.5%"></i></div><br><div class="row"><span>Dominadas</span><b>10</b></div><div class="bar"><i style="width:50%"></i></div><p class="tiny">Indicadores del punto de partida estimado, no mediciones automáticas.</p></div><div class="notice">Progresa solo si completas las series con técnica y 1–2 repeticiones en reserva. Si no, repite o reduce la carga.</div></section>
-<section id="workout" class="screen"><h1>Entrenamiento</h1><p class="muted">Guarda cada ejercicio realizado.</p><div class="card"><label>Semana</label><select id="workWeek"></select><label>Turno</label><select id="workShift"><option value="A">Tarde · 5 días</option><option value="B">Mañana · 3 días</option></select><label>Sesión</label><select id="daySelect"></select><div id="sessionPlan"></div></div><div class="card"><h2>Registrar ejercicio</h2><label>Ejercicio</label><select id="exercise"><option>Press banca</option><option>Press banca pausado</option><option>Dominadas estrictas</option><option>Sentadilla con barra</option><option>Peso muerto rumano</option><option>Remo con barra</option><option>Press militar</option><option>Press inclinado mancuernas</option><option>Jalón al pecho</option><option>Otro ejercicio</option></select><div class="two"><div><label>Carga (kg)</label><input id="load" type="number" step=".5" value="62.5"></div><div><label>Series</label><input id="sets" type="number" value="5"></div><div><label>Reps por serie</label><input id="reps" value="5"></div><div><label>RIR</label><select id="rir"><option>0</option><option>1</option><option selected>2</option><option>3+</option></select></div></div><label>Dominadas realizadas</label><input id="pullReps" type="number" value="0"><label>Peso corporal (kg)</label><input id="bodyWeight" type="number" step=".1" value="82"><label>Sensaciones</label><select id="feeling"><option>Buena</option><option>Normal</option><option>Mala</option></select><label>Observaciones</label><textarea id="notes" placeholder="Técnica, molestias, sensaciones..."></textarea><button class="full" onclick="saveSession()">Guardar ejercicio</button></div><div class="card"><h2>Cronómetro de descanso</h2><div class="timer" id="timer">02:00</div><div class="two"><button onclick="startTimer(90)">90 s</button><button onclick="startTimer(120)">2 min</button><button onclick="startTimer(180)">3 min</button><button onclick="startTimer(240)">4 min</button></div><button class="secondary full" style="margin-top:8px" onclick="stopTimer()">Reiniciar</button></div></section>
+<section id="workout" class="screen"><h1>Entrenamiento</h1><p class="muted">Guarda cada ejercicio realizado.</p><div class="card"><label>Semana</label><select id="workWeek"></select><label>Turno</label><select id="workShift"><option value="A">Tarde · 5 días</option><option value="B">Mañana · 3 días</option></select><label>Fecha de entrenamiento</label><input id="sessionDate" type="date">
+<label>Sesión (puedes cambiarla para recuperar un día)</label><select id="daySelect"></select>
+<div id="sessionPlan"></div></div><div class="card"><h2>Registrar ejercicio</h2><label>Ejercicio</label><select id="exercise"><option>Press banca</option><option>Press banca pausado</option><option>Dominadas estrictas</option><option>Sentadilla con barra</option><option>Peso muerto rumano</option><option>Remo con barra</option><option>Press militar</option><option>Press inclinado mancuernas</option><option>Jalón al pecho</option><option>Otro ejercicio</option></select><div class="two"><div><label>Carga (kg)</label><input id="load" type="number" step=".5" value="62.5"></div><div><label>Series</label><input id="sets" type="number" value="5"></div><div><label>Reps por serie</label><input id="reps" value="5"></div><div><label>RIR</label><select id="rir"><option>0</option><option>1</option><option selected>2</option><option>3+</option></select></div></div><label>Dominadas realizadas</label><input id="pullReps" type="number" value="0"><label>Peso corporal (kg)</label><input id="bodyWeight" type="number" step=".1" value="82"><label>Sensaciones</label><select id="feeling"><option>Buena</option><option>Normal</option><option>Mala</option></select><label>Observaciones</label><textarea id="notes" placeholder="Técnica, molestias, sensaciones..."></textarea><button class="full" onclick="saveSession()">Guardar ejercicio</button></div><div class="card"><h2>Cronómetro de descanso</h2><div class="timer" id="timer">02:00</div><div class="two"><button onclick="startTimer(90)">90 s</button><button onclick="startTimer(120)">2 min</button><button onclick="startTimer(180)">3 min</button><button onclick="startTimer(240)">4 min</button></div><button class="secondary full" style="margin-top:8px" onclick="stopTimer()">Reiniciar</button></div></section>
 <section id="history" class="screen"><h1>Historial</h1><p class="muted">Guardado localmente en este dispositivo.</p><div class="card"><div class="row"><h2>Registros</h2><span class="pill" id="recordCount">0</span></div><div id="historyList" class="muted">Todavía no hay registros.</div></div><div class="card"><h2>Exportar / copia de seguridad</h2><div class="two"><button onclick="exportCSV()">Exportar CSV</button><button class="secondary" onclick="exportJSON()">Copia JSON</button></div><label>Restaurar copia JSON</label><input type="file" id="importFile" accept=".json,application/json" onchange="importJSON(event)"></div></section>
 <section id="stats" class="screen"><h1>Evolución</h1><p class="muted">Resumen de los registros guardados.</p><div class="grid"><div class="card"><div class="muted">Sesiones</div><div class="metric" id="statSessions">0</div></div><div class="card"><div class="muted">Peso reciente</div><div class="metric" id="statWeight">82 <small>kg</small></div></div></div><div class="card"><h2>Press banca</h2><div id="benchHistory" class="muted">Sin registros.</div></div><div class="card"><h2>Dominadas</h2><div id="pullHistory" class="muted">Sin registros.</div></div><div class="card"><h2>Fotografías de evolución</h2><p class="muted">Las fotos se guardan en el almacenamiento local del navegador.</p><label>Añadir fotografía</label><input type="file" id="photoInput" accept="image/*" capture="environment"><button class="full" style="margin-top:8px" onclick="savePhoto()">Guardar foto</button><div id="photos"></div></div></section>
 <section id="settings" class="screen"><h1>Ajustes</h1><div class="card"><h2>Suunto</h2><div class="notice">No hay conexión Suunto activa. Esta versión permite introducir datos manualmente. La sincronización automática requiere una API o método oficial compatible y autorización.</div></div><div class="card"><h2>Almacenamiento</h2><p class="muted">Datos guardados en el navegador del iPhone. No se envían a servidores. Exporta una copia JSON con frecuencia. Borrar datos del sitio o limpiar Safari puede eliminar registros y fotos.</p><button class="secondary full" onclick="exportJSON()">Crear copia de seguridad</button><button class="danger full" style="margin-top:8px" onclick="clearData()">Borrar todos los datos</button></div><div class="card"><h2>Instalación iPhone</h2><ol class="muted"><li>Publica esta carpeta en un hosting HTTPS.</li><li>Abre la URL en Safari.</li><li>Compartir → Añadir a pantalla de inicio.</li><li>Confirma Añadir.</li></ol><p class="tiny">El paquete incluye la aplicación, pero no está alojado en Internet. La instalación PWA necesita una URL HTTPS.</p></div></section></main>
@@ -22,5 +24,131 @@ function clearData(){if(confirm('¿Borrar todos los registros y fotos de este di
 function savePhoto(){let f=photoInput.files[0];if(!f)return alert('Selecciona una fotografía');let r=new FileReader();r.onload=()=>{data.photos.push({date:new Date().toISOString(),data:r.result});try{persist();renderPhotos();alert('Foto guardada localmente')}catch(e){data.photos.pop();alert('Almacenamiento lleno. Exporta tus datos y prueba con una foto más pequeña')}};r.readAsDataURL(f)}
 function renderPhotos(){photos.innerHTML=data.photos.map((p,i)=>`<div class="listitem">${new Date(p.date).toLocaleDateString('es-ES')}<img class="photo" src="${p.data}"><button class="danger" style="margin-top:6px" onclick="delPhoto(${i})">Eliminar</button></div>`).join('')}function delPhoto(i){if(confirm('¿Eliminar foto?')){data.photos.splice(i,1);persist();renderPhotos()}}
 function startTimer(s){stopTimer();remain=s;showTimer();timer=setInterval(()=>{remain--;showTimer();if(remain<=0){stopTimer();if(navigator.vibrate)navigator.vibrate([250,100,250]);alert('Descanso terminado')}} ,1000)}function stopTimer(){if(timer)clearInterval(timer);timer=null;remain=120;showTimer()}function showTimer(){timer.textContent=String(Math.floor(remain/60)).padStart(2,'0')+':'+String(remain%60).padStart(2,'0')}function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+// --- FUERZA 20: planificación diaria y registro por ejercicio ---
+const dailyPlan = {
+ A: [
+  [{name:'Press banca',sets:'5',reps:'5',rest:'3-4 min',kind:'bench'},
+   {name:'Press inclinado con mancuernas',sets:'3',reps:'8-10',rest:'90 s',kind:'aux'},
+   {name:'Press banca agarre cerrado',sets:'3',reps:'8-10',rest:'2 min',kind:'aux'},
+   {name:'Extensión de tríceps en polea',sets:'3',reps:'10-12',rest:'60-90 s',kind:'aux'},
+   {name:'Plancha abdominal',sets:'3',reps:'30-45 s',rest:'60 s',kind:'body'}],
+  [{name:'Sentadilla con barra',sets:'4',reps:'6-8',rest:'2-3 min',kind:'aux'},
+   {name:'Peso muerto rumano',sets:'3',reps:'8-10',rest:'2 min',kind:'aux'},
+   {name:'Sentadilla búlgara',sets:'3',reps:'8 por pierna',rest:'90 s',kind:'aux'},
+   {name:'Curl femoral deslizante',sets:'3',reps:'10-12',rest:'60-90 s',kind:'body'},
+   {name:'Elevación de gemelos',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Ab wheel',sets:'3',reps:'8-12',rest:'60 s',kind:'body'}],
+  [{name:'Dominadas estrictas',sets:'5',reps:'3-5 según semana',rest:'2-3 min',kind:'pull1'},
+   {name:'Remo con barra',sets:'4',reps:'6-8',rest:'2 min',kind:'aux'},
+   {name:'Remo a una mano con mancuerna',sets:'3',reps:'10 por lado',rest:'90 s',kind:'aux'},
+   {name:'Face pull en polea',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Curl de bíceps',sets:'3',reps:'10-12',rest:'60-90 s',kind:'aux'}],
+  [{name:'Press banca pausado',sets:'3-4',reps:'3-6 según semana',rest:'3 min',kind:'secondary'},
+   {name:'Press militar',sets:'3',reps:'6-8',rest:'2 min',kind:'aux'},
+   {name:'Elevaciones laterales',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Pájaros / deltoides posterior',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Extensión de tríceps por encima de la cabeza',sets:'2-3',reps:'10-12',rest:'60 s',kind:'aux'}],
+  [{name:'Dominadas estrictas',sets:'4',reps:'2-4 según semana',rest:'2-3 min',kind:'pull2'},
+   {name:'Jalón al pecho',sets:'3',reps:'8-10',rest:'90 s',kind:'aux'},
+   {name:'Remo con mancuerna',sets:'3',reps:'10 por lado',rest:'90 s',kind:'aux'},
+   {name:'Curl martillo',sets:'3',reps:'10-12',rest:'60 s',kind:'aux'},
+   {name:'Rotación externa con polea',sets:'2',reps:'12-15',rest:'60 s',kind:'aux'}]
+ ],
+ B: [
+  [{name:'Press banca',sets:'según progresión',reps:'según progresión',rest:'3-4 min',kind:'bench'},
+   {name:'Sentadilla con barra',sets:'3',reps:'6-8',rest:'2-3 min',kind:'aux'},
+   {name:'Press inclinado con mancuernas',sets:'3',reps:'8-10',rest:'90 s',kind:'aux'},
+   {name:'Peso muerto rumano',sets:'3',reps:'8',rest:'2 min',kind:'aux'},
+   {name:'Extensión de tríceps en polea',sets:'2-3',reps:'10-12',rest:'60-90 s',kind:'aux'},
+   {name:'Plancha abdominal',sets:'3',reps:'30-45 s',rest:'60 s',kind:'body'}],
+  [{name:'Dominadas estrictas',sets:'4',reps:'según progresión',rest:'2-3 min',kind:'pull1'},
+   {name:'Remo con barra',sets:'4',reps:'6-8',rest:'2 min',kind:'aux'},
+   {name:'Jalón al pecho',sets:'3',reps:'8-10',rest:'90 s',kind:'aux'},
+   {name:'Face pull en polea',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Curl de bíceps',sets:'3',reps:'10-12',rest:'60-90 s',kind:'aux'}],
+  [{name:'Press banca pausado',sets:'según progresión',reps:'según progresión',rest:'3 min',kind:'secondary'},
+   {name:'Dominadas estrictas',sets:'3',reps:'según progresión',rest:'2-3 min',kind:'pull2'},
+   {name:'Press militar',sets:'3',reps:'6-8',rest:'2 min',kind:'aux'},
+   {name:'Elevaciones laterales',sets:'3',reps:'12-15',rest:'60 s',kind:'aux'},
+   {name:'Remo con mancuerna',sets:'3',reps:'10 por lado',rest:'90 s',kind:'aux'},
+   {name:'Curl martillo',sets:'2',reps:'10-12',rest:'60 s',kind:'aux'},
+   {name:'Ab wheel',sets:'3',reps:'8-12',rest:'60 s',kind:'body'}]
+ ]
+};
+const dayNames={A:['Lunes · Empuje + pecho','Martes · Piernas + core','Miércoles · Espalda + dominadas','Jueves · Banca pausada + hombros','Viernes · Dominadas + espalda'],B:['Lunes · Banca + piernas','Miércoles · Dominadas + espalda','Viernes · Banca secundaria + dominadas']};
+function pullPrescription(w,which,sh){
+ const p=[
+  [[5,3],[4,2]],[[5,3],[4,2]],[[5,3],[4,2]],[[5,3],[4,2]],
+  [[5,4],[4,3]],[[5,4],[4,3]],[[5,4],[4,3]],[[5,4],[4,3]],
+  [[5,4],[4,3]],[[5,4],[4,3]],[[5,5],[4,3]],[[5,5],[4,3]],
+  [[5,5],[4,4]],[[5,5],[4,4]],[[5,5],[4,4]],[[5,5],[4,4]],
+  [[4,5],[3,4]],[[4,5],[3,4]],[[3,3],[2,3]],[[0,0]]
+ ];
+ let a=p[w-1][which===1?0:1];
+ if(sh==='B' && which===1) a=[Math.max(3,a[0]-1),Math.max(2,a[1])];
+ if(sh==='B' && which===2) a=[Math.max(2,a[0]-1),Math.max(2,a[1])];
+ return w===20?'Test técnico sin llegar al fallo':`${a[0]} series × ${a[1]} reps`;
+}
+function prescribed(e,w,sh){
+ if(e.kind==='bench') return mainLoads[w-1]===null?'Evaluación técnica':`${mainLoads[w-1]} kg · ${mainSets[w-1]}`;
+ if(e.kind==='secondary') return secondary[w-1]===null?'Trabajo ligero':`${secondary[w-1]} kg · ${(['3×6','3×6','4×5','2×6','4×5','3×5','4×4','2×5','4×4','3×4','4×3','2×5','3×4','3×3','3×3','2×5','3×3','3×3','2×3','Ligero'][w-1])}`;
+ if(e.kind==='pull1') return `Peso corporal · ${pullPrescription(w,1,sh)}`;
+ if(e.kind==='pull2') return `Peso corporal · ${pullPrescription(w,2,sh)}`;
+ if(e.kind==='body') return 'Peso corporal';
+ let prev=[...data.sessions].reverse().find(s=>s.exercise===e.name && s.load>0);
+ if(prev){
+  let load=Number(prev.load), rir=String(prev.rir);
+  let suggestion=rir==='3+'?load+(e.name.includes('mancuerna')?1:2.5):load;
+  return `Último: ${load} kg · recomendado: ${suggestion} kg`;
+ }
+ return 'Primera sesión: calibra una carga que permita terminar con 2 RIR';
+}
+function nearestWorkoutDay(sh){
+ let d=new Date(),idx=d.getDay(),map=sh==='A'?[1,2,3,4,5]:[1,3,5];
+ for(let k=0;k<7;k++){let x=(idx+k)%7;if(map.includes(x))return x}
+ return map[0];
+}
+function updateSessions(){
+ let w=+(workWeek.value||1),sh=workShift.value||'B',days=dailyPlan[sh],previousDay=+(daySelect.value||0);
+ daySelect.innerHTML='';
+ days.forEach((d,i)=>{let o=document.createElement('option');o.value=i;o.textContent=dayNames[sh][i];daySelect.append(o)});
+ daySelect.value=String(Math.min(previousDay,days.length-1));
+ let dateEl=document.getElementById('sessionDate');
+ if(dateEl && !dateEl.value){let d=new Date(),wd=nearestWorkoutDay(sh);let delta=(wd-d.getDay()+7)%7;if(delta===0 && !days.some((_,i)=>i===0))delta=1;d.setDate(d.getDate()+delta);dateEl.value=d.toISOString().slice(0,10);}
+ let chosen=+(daySelect.value||0),list=days[chosen]||[];
+ let htmlPlan=`<div class="notice" style="margin:12px 0">Semana ${w} · ${sh==='A'?'Turno de tardes · 5 días':'Turno de mañanas · 3 días'}. Mantén 1–2 RIR en los ejercicios de fuerza y evita el fallo.</div>`;
+ htmlPlan+=list.map((e,i)=>`<div class="exercise"><div class="row"><b>${esc(e.name)}</b><span class="pill">${e.sets} × ${e.reps}</span></div><small>Recomendación: <b>${esc(prescribed(e,w,sh))}</b> · Descanso ${e.rest}</small><button class="secondary" style="padding:8px 10px;margin-top:7px" onclick="selectExercise(${i})">Registrar este ejercicio</button></div>`).join('');
+ sessionPlan.innerHTML=htmlPlan;
+ exercise.innerHTML=list.map(e=>`<option>${esc(e.name)}</option>`).join('');
+ if(list.length)prefillExercise(list[0],w,sh);
+}
+function selectExercise(i){let list=dailyPlan[workShift.value][+daySelect.value];let e=list[i];exercise.value=e.name;prefillExercise(e,+workWeek.value,workShift.value);document.getElementById('load').focus();}
+function prefillExercise(e,w,sh){
+ let lp=prescribed(e,w,sh),loadInput=document.getElementById('load');
+ let kg=lp.match(/(\d+(?:[.,]\d+)?) kg/);
+ loadInput.value=kg?kg[1].replace(',','.'): (e.kind==='body'?0:( [...data.sessions].reverse().find(s=>s.exercise===e.name)?.load||''));
+ document.getElementById('sets').value=e.kind==='bench'?mainSets[w-1].split('×')[0]:(e.kind==='secondary'?((['3','3','4','2','4','3','4','2','4','3','4','2','3','3','3','2','3','3','2','2'][w-1])):e.sets);
+ document.getElementById('reps').value=e.kind==='bench'?mainSets[w-1].split('×')[1]:(e.kind==='secondary'?(['6','6','5','6','5','5','4','5','4','4','3','5','4','3','3','5','3','3','3','3'][w-1]):(e.kind==='pull1'||e.kind==='pull2'?pullPrescription(w,e.kind==='pull1'?1:2,sh):e.reps));
+}
+function saveSession(){
+ let s={date:(document.getElementById('sessionDate').value?new Date(document.getElementById('sessionDate').value+'T12:00:00').toISOString():new Date().toISOString()),week:+workWeek.value,shift:workShift.value,day:daySelect.options[daySelect.selectedIndex]?.text||'',exercise:exercise.value,load:+load.value||0,sets:sets.value,reps:reps.value,rir:rir.value,pull:+pullReps.value||0,body:+bodyWeight.value||82,feeling:feeling.value,notes:notes.value};
+ data.sessions.push(s);persist();notes.value='';alert('Ejercicio guardado. Puedes registrar el siguiente de la sesión.');renderHistory();
+}
+function init(){
+ ['weekSelect','workWeek'].forEach(id=>{let el=document.getElementById(id);if(!el.options.length){for(let i=1;i<=20;i++){let o=document.createElement('option');o.value=i;o.textContent='Semana '+i;el.append(o)}}});
+ weekSelect.value='1';workWeek.value='1';
+ shiftSelect.value='B';workShift.value='B';
+ weekSelect.addEventListener('change',updatePlan);shiftSelect.addEventListener('change',updatePlan);
+ workWeek.addEventListener('change',updateSessions);workShift.addEventListener('change',()=>{document.getElementById('sessionDate').value='';updateSessions()});
+ daySelect.addEventListener('change',updateSessions);
+ document.getElementById('sessionDate').addEventListener('change',()=>{
+  let dt=new Date(document.getElementById('sessionDate').value+'T12:00:00'),dow=dt.getDay(),map=workShift.value==='A'?[1,2,3,4,5]:[1,3,5],idx=map.indexOf(dow);
+  if(idx>=0)daySelect.value=String(idx);
+  updateSessions();
+ });
+ updatePlan();renderHistory();
+}
+
 init();if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script></body></html>

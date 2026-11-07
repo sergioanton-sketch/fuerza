@@ -1,0 +1,14 @@
+FUERZA 20 — Aplicación web progresiva para iPhone
+
+Archivos: index.html, manifest.webmanifest, sw.js e iconos PNG.
+
+INSTALACIÓN:
+1. Publica el contenido de esta carpeta en un alojamiento HTTPS.
+2. Abre la URL en Safari en el iPhone.
+3. Compartir > Añadir a pantalla de inicio > Añadir.
+
+ALMACENAMIENTO:
+Los registros y fotos se guardan en localStorage del navegador/dispositivo. No se envían a servidores. Exporta JSON periódicamente. Limpiar datos de Safari o borrar datos del sitio puede eliminar la información local.
+
+LIMITACIONES:
+La sincronización Suunto no está conectada. Requiere un mecanismo/API oficial compatible y autorización. El paquete no está alojado públicamente; necesita HTTPS para instalarse como PWA.

@@ -20,3 +20,10 @@ Instalación/publicación:
 La aplicación no se publica automáticamente desde este ZIP. Requiere subir los archivos a GitHub Pages y disponer de HTTPS.
 Los datos se almacenan localmente en el navegador. Exporta copias JSON regularmente.
 Suunto no está conectado; la introducción de datos sigue siendo manual.
+
+CAMBIOS (versión corregida)
+- Corregido el cronómetro de descanso (la variable del temporizador chocaba con el elemento de la pantalla).
+- Corregido el formulario en la semana 20 (ya no muestra "undefined").
+- Nueva pestaña "Plan": todos los ejercicios de cada día visibles, con series x repeticiones, carga y descanso, sin desplegar nada.
+- La app recuerda la semana y el turno elegidos. Las dominadas del Inicio ya respetan el turno.
+- Service worker en modo red primero: al subir una versión nueva a GitHub Pages se actualiza sola.

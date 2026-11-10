@@ -1,29 +1,25 @@
-FUERZA 20 – versión actualizada
+FUERZA, SEGUIMIENTO (app instalable para GitHub Pages)
 
-Contenido:
-- Planificación diaria completa para semanas de 3 y 5 días.
-- Selección de fecha y cambio manual de sesión para recuperar entrenamientos.
-- Cargas programadas de press banca y banca pausada según las 20 semanas.
-- Progresión de dominadas según la semana y el turno.
-- Para ejercicios auxiliares, propone la última carga registrada y orienta el siguiente incremento si el último registro fue fácil (3+ RIR). En la primera sesión se debe calibrar una carga que permita 2 RIR; no se inventan pesos sin conocer la fuerza individual.
-- Registro de peso, series, repeticiones, RIR, sensaciones y observaciones.
-- Historial, CSV, copia/restauración JSON, temporizador y fotos locales.
+CONTENIDO
+- index.html            la app completa
+- manifest.webmanifest  datos para instalarla en el móvil
+- sw.js                 funcionamiento sin conexión (se actualiza sola al subir una versión nueva)
+- icon-192.png, icon-512.png
 
-Instalación/publicación:
-1. Descomprime el ZIP.
-2. En GitHub, abre el repositorio sergioanton-sketch/gimnasio.
-3. Add file > Upload files; sube y reemplaza los archivos de esta carpeta en la raíz.
-4. Commit changes.
-5. En Settings > Pages comprueba Deploy from a branch, main y /(root).
-6. Espera a que Actions termine correctamente y abre https://sergioanton-sketch.github.io/gimnasio/
+CÓMO PUBLICARLA EN GITHUB PAGES
+1. Crea un repositorio nuevo (por ejemplo "fuerza") en GitHub.
+2. Sube los 5 archivos a la raíz del repositorio (no dentro de una carpeta).
+3. En el repositorio: Settings > Pages > Source: "Deploy from a branch", rama main, carpeta / (root). Guarda.
+4. En uno o dos minutos la app estará en https://TU-USUARIO.github.io/fuerza/
 
-La aplicación no se publica automáticamente desde este ZIP. Requiere subir los archivos a GitHub Pages y disponer de HTTPS.
-Los datos se almacenan localmente en el navegador. Exporta copias JSON regularmente.
-Suunto no está conectado; la introducción de datos sigue siendo manual.
+INSTALARLA EN EL MÓVIL
+- Android (Chrome): menú ⋮ > Instalar aplicación.
+- iPhone (Safari): Compartir > Añadir a pantalla de inicio.
 
-CAMBIOS (versión corregida)
-- Corregido el cronómetro de descanso (la variable del temporizador chocaba con el elemento de la pantalla).
-- Corregido el formulario en la semana 20 (ya no muestra "undefined").
-- Nueva pestaña "Plan": todos los ejercicios de cada día visibles, con series x repeticiones, carga y descanso, sin desplegar nada.
-- La app recuerda la semana y el turno elegidos. Las dominadas del Inicio ya respetan el turno.
-- Service worker en modo red primero: al subir una versión nueva a GitHub Pages se actualiza sola.
+DATOS
+- Todo se guarda en el navegador del móvil, no en GitHub. Si cambias la dirección de la app o borras los datos del navegador, se pierden.
+- Haz copia de seguridad de vez en cuando: Ajustes > Copia de seguridad > Copiar, y guarda el texto en tus notas. Para restaurar, pégalo en el mismo recuadro y pulsa Restaurar.
+- Si ya usabas la versión de prueba de Claude, copia su texto de copia de seguridad y pégalo en la app de GitHub con Restaurar.
+
+ACTUALIZAR
+- Sustituye los archivos del repositorio por los nuevos. Al abrir la app dos veces se carga la versión nueva.

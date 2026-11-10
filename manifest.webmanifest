@@ -1,21 +1,15 @@
 {
-  "name": "FUERZA 20",
-  "short_name": "FUERZA 20",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#0c100f",
-  "theme_color": "#101312",
+  "name": "Fuerza, seguimiento",
+  "short_name": "Fuerza",
+  "description": "Planes de 5 y 3 días con pesos recomendados y seguimiento de peso corporal, cargas y series.",
   "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1217",
+  "theme_color": "#2457d6",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ]
 }

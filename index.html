@@ -67,20 +67,21 @@ ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.g
 mon=s=>{let x=new Date(s+'T12:00:00');x.setDate(x.getDate()-((x.getDay()+6)%7));return ymd(x)};
 
 /* Plan: [nombre, series, reps mín, reps máx, descanso entre series, salto de carga en kg] */
+const DJ=(s,a,b)=>['Dominadas (kg extra)',s,a,b,'2-3 min',2.5,'','Jalón al pecho (kg)'];
 const PL={'5':{n:'5 días',d:[
 ['Pecho y tríceps',[['Press banca',4,6,8,'2-3 min',2.5],['Press inclinado con mancuernas',3,8,10,'2-3 min',2],['Fondos (kg extra)',3,8,12,'2-3 min',2.5],['Aperturas en polea',3,12,15,'60-90 s',2.5],['Press cerrado',3,8,10,'2-3 min',2.5],['Extensión de tríceps en polea',3,10,12,'60-90 s',2.5],['Extensión sobre la cabeza',2,12,15,'60-90 s',2.5]]],
-['Espalda y bíceps',[['Dominadas / jalón (kg)',4,6,10,'2-3 min',2.5],['Remo con barra',4,6,8,'2-3 min',2.5],['Remo con mancuerna',3,8,10,'60-90 s',2],['Jalón unilateral',3,10,12,'60-90 s',2.5],['Face pull',3,12,15,'60-90 s',2.5],['Curl con barra',3,8,10,'60-90 s',2.5],['Curl inclinado',3,10,12,'60-90 s',1],['Curl martillo',2,12,12,'60-90 s',1]]],
+['Espalda y bíceps',[DJ(4,6,10),['Remo con barra',4,6,8,'2-3 min',2.5],['Remo con mancuerna',3,8,10,'60-90 s',2],['Jalón unilateral',3,10,12,'60-90 s',2.5],['Face pull',3,12,15,'60-90 s',2.5],['Curl con barra',3,8,10,'60-90 s',2.5],['Curl inclinado',3,10,12,'60-90 s',1],['Curl martillo',2,12,12,'60-90 s',1]]],
 ['Pierna completa',[['Sentadilla',4,6,8,'2-3 min',5],['Peso muerto rumano',3,8,10,'2-3 min',5],['Prensa',3,10,10,'2-3 min',5],['Zancadas (por pierna)',3,10,10,'60-90 s',2],['Curl femoral',3,10,12,'60-90 s',2.5],['Extensión de cuádriceps',2,12,15,'60-90 s',2.5],['Gemelos',4,12,15,'60-90 s',2.5]]],
 ['Hombros y brazos',[['Press militar',4,6,8,'2-3 min',2.5],['Elevaciones laterales',4,12,15,'60-90 s',1],['Pájaros',3,12,15,'60-90 s',1],['Lateral en polea',3,12,15,'60-90 s',1],['Curl con barra',3,8,10,'60-90 s',2.5],['Curl martillo',3,10,12,'60-90 s',1],['Press francés',3,8,10,'60-90 s',2.5],['Tríceps con cuerda',3,12,15,'60-90 s',2.5]]],
-['Torso y core',[['Press inclinado',3,8,10,'2-3 min',2.5],['Dominadas / jalón (kg)',3,8,10,'2-3 min',2.5],['Press banca (volumen)',3,8,10,'2-3 min',2.5],['Remo sentado',3,10,12,'60-90 s',2.5],['Elevaciones laterales',3,12,15,'60-90 s',1],['Face pull',2,15,15,'60-90 s',2.5],['Rueda abdominal',3,8,12,'60-90 s',0],['Plancha',3,30,45,'60-90 s',0,'s']]]]},
+['Torso y core',[['Press inclinado',3,8,10,'2-3 min',2.5],DJ(3,8,10),['Press banca (volumen)',3,8,10,'2-3 min',2.5],['Remo sentado',3,10,12,'60-90 s',2.5],['Elevaciones laterales',3,12,15,'60-90 s',1],['Face pull',2,15,15,'60-90 s',2.5],['Rueda abdominal',3,8,12,'60-90 s',0],['Plancha',3,30,45,'60-90 s',0,'s']]]]},
 '3':{n:'3 días',d:[
-['Full body A',[['Press banca',4,6,8,'2-3 min',2.5],['Press inclinado con mancuernas',3,8,10,'2-3 min',2],['Remo con barra',4,6,8,'2-3 min',2.5],['Dominadas / jalón (kg)',3,8,10,'2-3 min',2.5],['Sentadilla',4,6,8,'2-3 min',5],['Peso muerto rumano',3,8,10,'2-3 min',5],['Curl inclinado',2,10,12,'60-90 s',1],['Extensión de tríceps',2,10,12,'60-90 s',2.5]]],
-['Full body B',[['Sentadilla búlgara (por pierna)',3,8,10,'2-3 min',2],['Curl femoral deslizante',3,10,15,'60-90 s',0],['Press militar',4,6,8,'2-3 min',2.5],['Elevaciones laterales',3,12,15,'60-90 s',1],['Pájaros',3,12,15,'60-90 s',1],['Remo con mancuerna a una mano',3,10,12,'60-90 s',2],['Dominadas / jalón (kg)',3,8,10,'2-3 min',2.5],['Press francés',3,8,10,'60-90 s',2.5]]],
+['Full body A',[['Press banca',4,6,8,'2-3 min',2.5],['Press inclinado con mancuernas',3,8,10,'2-3 min',2],['Remo con barra',4,6,8,'2-3 min',2.5],DJ(3,8,10),['Sentadilla',4,6,8,'2-3 min',5],['Peso muerto rumano',3,8,10,'2-3 min',5],['Curl inclinado',2,10,12,'60-90 s',1],['Extensión de tríceps',2,10,12,'60-90 s',2.5]]],
+['Full body B',[['Sentadilla búlgara (por pierna)',3,8,10,'2-3 min',2],['Curl femoral deslizante',3,10,15,'60-90 s',0],['Press militar',4,6,8,'2-3 min',2.5],['Elevaciones laterales',3,12,15,'60-90 s',1],['Pájaros',3,12,15,'60-90 s',1],['Remo con mancuerna a una mano',3,10,12,'60-90 s',2],DJ(3,8,10),['Press francés',3,8,10,'60-90 s',2.5]]],
 ['Full body C',[['Sentadilla goblet',3,10,12,'60-90 s',2],['Peso muerto rumano',3,8,10,'2-3 min',5],['Gemelos con mancuernas',4,12,15,'60-90 s',2],['Fondos inclinados (kg extra)',3,8,12,'2-3 min',2.5],['Press inclinado',3,8,10,'2-3 min',2.5],['Remo con mancuerna',3,10,12,'60-90 s',2],['Face pull',3,12,15,'60-90 s',2.5],['Curl martillo',3,10,12,'60-90 s',1],['Extensión de tríceps',3,10,12,'60-90 s',2.5],['Rueda abdominal',3,8,12,'60-90 s',0]]]]}};
 
 let S={ss:[],bw:[],st:{},plan:'5',day:null,deload:false,sel:null},tab='hoy',tmr=null;
 try{let x=localStorage.getItem('fz1');if(x)S={...S,...JSON.parse(x)}}catch(e){}
-function save(){try{localStorage.setItem('fz1',JSON.stringify({ss:S.ss,bw:S.bw,st:S.st,plan:S.plan}))}catch(e){}}
+function save(){try{localStorage.setItem('fz1',JSON.stringify({ss:S.ss,bw:S.bw,st:S.st,plan:S.plan,alt:S.alt}))}catch(e){}}
 function msg(t){let m=$('msg');if(m)m.textContent=t}
 
 /* Doble progresión: si completas todas las series en el máximo de reps, subes carga */
@@ -101,10 +102,12 @@ function nextDay(){let l=[...S.ss].reverse().find(s=>s.plan===S.plan);return l?(
 
 const BA=['Press banca','Sentadilla','Peso muerto','Press militar','Peso muerto rumano','Remo con barra','Press inclinado con barra','Press inclinado','Press banca (volumen)'];
 function wu(n,w){if(!BA.includes(n)||!(w>=30))return '';let a=w>=40?[[20,'10']]:[];[[.5,'6-8'],[.7,'4'],[.8,'2-3'],[.9,'1']].forEach(([p,r])=>{let x=Math.round(p*w/2.5)*2.5;if(x>=20&&x<w&&(!a.length||x>a[a.length-1][0]))a.push([x,r])});return a.length?`<div class="m" style="margin:-4px 0 8px">Aproximación, kg × reps: ${a.map(x=>f(x[0])+' × '+x[1]).join(', ')}</div>`:''}
+function sw(e){return e[7]&&(S.alt||{})[e[0]]?[e[7],e[1],e[2],e[3],e[4],e[5],e[6],e[0],1]:e}
+function swp(k){S.alt=S.alt||{};S.alt[k]=!S.alt[k];save();go(tab)}
 function exb(e,inp){
  let [n,ns,lo,hi,re,,u]=e,g=(lo===hi?lo:lo+'-'+hi)+(u?' s':''),r=rec(e,inp&&S.deload),m=re.match(/(\d+)(?:-(\d+))? (min|s)/),sec=(+(m[2]||m[1]))*(m[3]==='min'?60:1);
  return `<div class="ex"><div class="h"><b>${esc(n)}</b><span class="sr">${ns} × ${g}</span></div><div class="rec">${r.w!=null?`Recomendado <strong>${r.w===0?'peso corporal':f(r.w)+' kg'}</strong>`:'Sin referencia'}, descanso entre series ${re}<br><span class="m">${esc(r.why)}</span></div>${wu(n,r.w)}`
- +(inp?Array.from({length:ns},(_,j)=>`<div class="r" data-n="${esc(n)}"><i>${j+1}</i><input inputmode="decimal" placeholder="kg" value="${r.w!=null?f(r.w):''}"><input inputmode="numeric" placeholder="${g}${u?'':' reps'}"></div>`).join('')+`<button class="t" onclick="rest(${sec})">Iniciar descanso</button>`:'')+`</div>`}
+ +(inp?Array.from({length:ns},(_,j)=>`<div class="r" data-n="${esc(n)}"><i>${j+1}</i><input inputmode="decimal" placeholder="kg" value="${r.w!=null?f(r.w):''}"><input inputmode="numeric" placeholder="${g}${u?'':' reps'}"></div>`).join('')+`<button class="t" onclick="rest(${sec})">Iniciar descanso</button>${e[7]?`<button class="t" style="margin-left:8px" onclick="swp('${esc(e[8]?e[7]:e[0])}')">Cambiar a ${esc(e[7])}</button>`:''}`:'')+`</div>`}
 
 function hoy(){
  let p=PL[S.plan],di=S.day??nextDay(),d=p.d[di],n=due(1),lb=S.bw.length?S.bw[S.bw.length-1]:null;S.day=di;let wk=mon(ymd(new Date()));if(S.dlWk!==wk){S.deload=autoDl();S.dlWk=wk}
@@ -114,7 +117,7 @@ function hoy(){
  +`<label class="row m"><input type="checkbox" ${S.deload?'checked':''} onchange="S.deload=this.checked;go('hoy')"> Semana de descarga, 10 % menos de carga</label>
 <div class="row" style="margin-top:10px"><input id="dt" type="date" value="${ymd(new Date())}" style="flex:1"><input id="bw" inputmode="decimal" placeholder="Peso corporal, kg" style="flex:1"></div>
 <p class="m" style="margin:4px 0 0">${lb?'Último peso registrado: '+f(lb[1])+' kg ('+lb[0]+')':'Anota tu peso corporal para seguir su evolución.'}</p>`
- +d[1].map(e=>exb(e,true)).join('')+`<button class="p" onclick="guardar()">Guardar sesión</button><p class="m" id="msg"></p>`}
+ +d[1].map(e=>exb(sw(e),true)).join('')+`<button class="p" onclick="guardar()">Guardar sesión</button><p class="m" id="msg"></p>`}
 
 function guardar(){
  let ex={};document.querySelectorAll('.r').forEach(r=>{let i=r.querySelectorAll('input'),kg=num(i[0].value),rp=parseInt(i[1].value);if(rp>0&&kg>=0)(ex[r.dataset.n]=ex[r.dataset.n]||[]).push([kg,rp])});
@@ -126,7 +129,7 @@ function guardar(){
 
 function plan(){let p=PL[S.plan];
  return `<h1>Plan</h1><div class="seg">${Object.keys(PL).map(k=>`<button class="${k===S.plan?'on':''}" onclick="S.plan='${k}';S.day=null;go('plan')">Semana de ${PL[k].n}</button>`).join('')}</div>`
- +p.d.map(x=>`<h2>${esc(x[0])}</h2>`+x[1].map(e=>exb(e,false)).join('')).join('')
+ +p.d.map(x=>`<h2>${esc(x[0])}</h2>`+x[1].map(e=>exb(sw(e),false)).join('')).join('')
  +`<h2>Cómo se calculan los pesos</h2><p class="m">Cada ejercicio tiene un rango de repeticiones. Cuando completas todas las series en el máximo del rango, la app te recomienda subir carga en la siguiente sesión. Si no llegas, repites el peso. Si la media queda por debajo del mínimo, baja un escalón. Tras 6 semanas seguidas entrenando, la app activa sola una semana de descarga con un 10 % menos de carga, y puedes desmarcarla. Las dominadas y los fondos se registran con los kilos extra (0 si solo usas tu peso). En los ejercicios básicos verás también las series de aproximación, calculadas a partir del peso recomendado. No hace falta registrarlas: anota solo las series de trabajo. Trabaja casi siempre a 1-2 repeticiones en reserva.</p>`}
 
 function chart(pts){
@@ -146,7 +149,7 @@ function tabla(){
 function addBw(){let v=num($('bw2').value),d=ymd(new Date());if(!(v>0))return;S.bw=S.bw.filter(x=>x[0]!==d);S.bw.push([d,v]);S.bw.sort((a,b)=>a[0]<b[0]?-1:1);save();go('prog')}
 
 function aj(){
- let names=[...new Set(Object.values(PL).flatMap(p=>p.d.flatMap(d=>d[1].map(e=>e[0]))))];
+ let names=[...new Set(Object.values(PL).flatMap(p=>p.d.flatMap(d=>d[1].flatMap(e=>e[7]?[e[0],e[7]]:[e[0]]))))];
  return `<h1>Ajustes</h1><h2>Pesos iniciales</h2><p class="m">Opcional. Con tu peso de trabajo actual en cada ejercicio, la app calcula la primera recomendación. Si lo dejas vacío, calibra con 2 repeticiones en reserva y registra la serie.</p>`
  +names.map(n=>`<div class="row" style="margin:6px 0"><span style="flex:1">${esc(n)}</span><input style="width:96px" inputmode="decimal" data-n="${esc(n)}" value="${S.st[n]!=null?f(S.st[n]):''}" placeholder="kg" onchange="setSt(this.dataset.n,this.value)"></div>`).join('')
  +`<h2>Copia de seguridad</h2><p class="m">Tus datos se guardan solo en este navegador. Copia este texto y guárdalo en un lugar seguro. Para restaurar, pégalo aquí y pulsa Restaurar.</p><textarea id="bk">${esc(JSON.stringify({ss:S.ss,bw:S.bw,st:S.st}))}</textarea><div class="row"><button class="t" onclick="cp()">Copiar</button><button class="t" onclick="rs()">Restaurar</button><button class="t" onclick="rz(this)">Borrar todo</button></div><p class="m" id="msg"></p>`}
